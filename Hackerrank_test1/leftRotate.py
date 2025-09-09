@@ -1,8 +1,8 @@
-def leftRotate(lis, d):
-    n=len(lis)
+def leftRotate(arr, d):
+    n=len(arr)
     d=d%n
-    return lis[d:]+lis[:d]
+    return arr[d:]+arr[:d]
 
-lis=[1,2,3,4,5]
+arr=[1,2,3,4,5]
 d=eval(input("Enter rotate value: "))
-print("Rotated Array:",leftRotate(lis,d))
+print("Rotated Array:",leftRotate(arr,d))

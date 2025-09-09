@@ -1,3 +1,4 @@
+import math
 class _BSTNode:
     def __init__(self,val):
         self.val=val
@@ -28,15 +29,14 @@ class BST:
                 curr=curr.right
 
 
-    def preorder(self):
-        res=[]
-        def dfs(node):
-            if not node:return
-            res.append(node.val)
-            dfs(node.left)
-            dfs(node.right)
-        dfs(self.root)
-        return res
+    def height(self,node,h):
+        if node==None:
+            # print("hi")
+            h[0]=h[0]+1
+            return
+        print(node.val)
+        self.height(node.left,h)
+        self.height(node.right,h)
     
 def main():
     bst=BST()
@@ -47,7 +47,18 @@ def main():
     bst.insert(40)
     bst.insert(60)
     bst.insert(80)
-    print(bst.preorder())
+    bst.insert(90)
+    bst.insert(100)
+    bst.insert(110)
+    bst.insert(120)
+    bst.insert(130)
+    bst.insert(140)
+    bst.insert(150)
+    bst.insert(160)
+    h=[0]
+    bst.height(bst.root,h)
+    ## formula - height=log2(total no of last nodes)
+    print("Height -",math.log(h[0]/2,2))
 
 if __name__=="__main__":
   main()
